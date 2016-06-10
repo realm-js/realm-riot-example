@@ -28,8 +28,8 @@
    <div>
       <a href="/test/hello">To test hello</a>
    </div>
-   Shit goes here:--->
-   <div route></div>
+
+   <div route style="padding:10px; border:1px solid blue"></div>
    <script>
       this.user = {
          name: "hello"

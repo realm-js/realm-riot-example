@@ -17,7 +17,6 @@ class Server extends Express {
          '/lib/riot/riot.min.js',
          '/lib/realm-riot/dist/frontend/realm.riot.js',
          '/build/tags.js',
-
          '/build/frontend.js',
          '/build/universal.js'
       ]);
