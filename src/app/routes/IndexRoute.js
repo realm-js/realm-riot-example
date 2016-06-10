@@ -6,10 +6,8 @@ class IndexRoute extends Router {
 
    initialize() {
       console.log('IndexRoute initialize');
-      this.title = "Hello i am title";
-      return this.render('landing', function(tag) {
 
-      });
+      return this.render('landing');
    }
 
    onTest() {

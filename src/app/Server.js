@@ -9,6 +9,7 @@ class Server extends Express {
       this.serve("/build/", "@home/build");
       this.serve("/lib/riot", "@home/node_modules/riot/");
       this.serve("/lib/realm-riot", "@home/node_modules/realm-riot/");
+      this.serve("/static", "@home/static/");
 
       this.addScripts([
          '/dependencies/lodash.min.js',
@@ -20,6 +21,8 @@ class Server extends Express {
          '/build/frontend.js',
          '/build/universal.js'
       ]);
+
+      this.addStyles('/static/css/main.css');
 
       this.bindIndex(/^\/(?!api|_realm_|favicon.ico).*/, {
          application: 'app.Application',

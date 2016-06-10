@@ -1,9 +1,5 @@
 <landing>
-   <h1>Hello world {user.name}</h1>
-   asdf
-   <form>
-      <ui-input model="user.name"></ui-input>
-   </form>
+
    <div>
       <a href="/">HOME</a>
    </div>
@@ -30,13 +26,43 @@
    </div>
 
    <div route style="padding:10px; border:1px solid blue"></div>
+
+   <h1>ToDo List</h1>
+
+   <div class="todo">
+      <div class="item" each={item in list}>
+         {item.name}
+      </div>
+      <hr/>
+      <h4>Add new todo</h4>
+      <form onsubmit={addToDo}>
+         <ui-input model="data.newToDo"></ui-input>
+      </form>
+
+   </div>
+
    <script>
-      this.user = {
-         name: "hello"
-      }
+      "use realm";
       var self = this;
-      this.on("model-changed", function (name, value) {
-         self.update();
-      });
+      this.data = {
+         newToDo: 'New thingy to do'
+      }
+
+      import ToDo from app.services;
+
+      this.getList = function () {
+         ToDo.getList().then(function (result) {
+            self.list = result;
+            self.update();
+         })
+      }
+
+      this.addToDo = function () {
+         ToDo.add(self.data.newToDo).then(function () {
+            self.getList();
+         });
+      }
+
+      this.getList();
    </script>
 </landing>
