@@ -30,7 +30,7 @@
   "dependencies": {
     "lodash": "^4.13.1",
     "realm-js": "^1.1.85",
-    "realm-riot": "^1.0.1",
+    "realm-riot": "^1.0.2",
     "realm-router": "^1.1.24",
     "realm-server": "^1.0.3",
     "request": "^2.72.0",
