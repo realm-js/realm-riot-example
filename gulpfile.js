@@ -51,7 +51,7 @@ gulp.task("riot", function() {
 });
 
 gulp.task('start', function() {
-   return runSequence('build', 'riot', function() {
+   return runSequence('riot', 'build', function() {
       runSequence('server')
 
       gulp.watch(['src/**/*.js'], function() {
