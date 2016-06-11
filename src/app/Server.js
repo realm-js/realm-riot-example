@@ -22,7 +22,7 @@ class Server extends Express {
          '/build/universal.js'
       ]);
 
-      this.addStyles('/static/css/main.css');
+      this.addStyles(['/static/css/main.css', '/static/css/semantic.min.css']);
 
       this.bindIndex(/^\/(?!api|_realm_|favicon.ico).*/, {
          application: 'app.Application',

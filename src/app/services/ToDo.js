@@ -1,26 +1,41 @@
 "use realm bridge";
 import lodash as _ from realm.server.utils;
 
-let id = 0;
+var id = 0;
 const list = [{
-   name: "First thing",
+   title: "First thing",
+   id: id++,
+   done: false
+}, {
+   title: "Second thing",
+   done: false,
    id: id++
 }, {
-   name: "Second thing",
-   id: id++
+   title: "Has to be done",
+   id: id++,
+   done: true
 }];
 
 class ToDo {
+
    static add(name) {
-      list.push({
-         name: name,
-         id: id++
-      })
-      return {};
+      var newToDo = {
+         title: name,
+         id: id++,
+         done: false
+      }
+      list.push(newToDo)
+      return newToDo;
    }
 
-   static remove(id) {
-
+   static save(item) {
+      var index = _.findIndex(list, {
+         id: item.id
+      });
+      if (index > -1) {
+         list[index] = item;
+      }
+      return item;
    }
 
    static getList() {
