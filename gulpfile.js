@@ -9,7 +9,7 @@ var runSequence = require('run-sequence');
 var spawn = require('child_process').spawn;
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
-
+var prettify = require('gulp-jsbeautifier');
 var node;
 
 gulp.task('server', function() {
@@ -49,7 +49,14 @@ gulp.task("riot", function() {
       })
       .pipe(gulp.dest('./build'));
 });
-
+gulp.task('prettify', function() {
+   return gulp.src(["build/backend.js", "build/frontend.js", "build.universal.js"])
+      .pipe(prettify({
+         js: {
+            max_preserve_newlines: 1
+         }
+      })).pipe(gulp.dest("./build/"))
+})
 gulp.task('start', function() {
    return runSequence('riot', 'build', function() {
       runSequence('server')

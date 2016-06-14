@@ -20,6 +20,7 @@
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-concat-util": "^0.5.5",
+    "gulp-jsbeautifier": "^2.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-riot": "^0.5.1",
     "gulp-sourcemaps": "^1.6.0",
